@@ -1,0 +1,41 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/poppins/600.css";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+   
+    --color-primary: theme("colors.primary.DEFAULT");
+    --color-secondary: theme("colors.secondary.DEFAULT");
+    --color-accent: theme("colors.accent.DEFAULT");
+  }
+
+  body {
+    @apply font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  a {
+    @apply text-primary hover:underline;
+  }
+}
+
+/* 4) Componentes globales opcionales */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-semibold px-4 py-2 rounded-lg shadow hover:bg-primary-dark transition;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-shadow hover:shadow-lg;
+  }
+}

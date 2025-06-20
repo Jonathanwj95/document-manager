@@ -1,0 +1,20 @@
+// Declaraciones para archivos CSS modules
+declare module '*.module.css' {
+  const classes: { readonly [key: string]: string };
+  export default classes;
+}
+
+// Declaraciones para imágenes
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
+declare module '*.gif';
+declare module '*.svg' {
+  import React from 'react';
+  const content: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  export default content;
+}
+
+// Declaraciones para hooks y componentes (opcional pero útil)
+declare module '@hooks/*';
+declare module '@components/*';
