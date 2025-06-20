@@ -26,7 +26,7 @@ def convert():
         pdf = FPDF()
         pdf.add_page()
 
-        # Si hay título, imprimirlo centrado y en negrita
+      
         if title:
             pdf.set_font("Arial", "B", 16)
             pdf.cell(0, 10, title, ln=True, align='C')
@@ -36,12 +36,12 @@ def convert():
         pdf.set_font("Arial", size=12)
         pdf.multi_cell(0, 8, content)
 
-        # Volcar a buffer
+       
         buffer = io.BytesIO()
         pdf.output(buffer)
         buffer.seek(0)
 
-        # Preparar respuesta
+       
         response = make_response(buffer.read())
         response.headers['Content-Type'] = 'application/pdf'
         response.headers['Content-Disposition'] = 'attachment; filename=documento.pdf'
@@ -56,5 +56,5 @@ def health_check():
     return jsonify({"status": "ok"}), 200
 
 if __name__ == '__main__':
-    # IMPORTANTE: usamos el puerto 6000 para el servicio de Flask
+    
     app.run(host='0.0.0.0', port=6000, debug=True)
